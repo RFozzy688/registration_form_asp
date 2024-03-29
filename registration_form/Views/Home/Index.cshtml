@@ -1,0 +1,49 @@
+﻿@model registration_form.Models.Home.FormModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-action="Index" method="post" class="box-form">
+    <div class="row">
+        <div class="col box-content">
+            @* ввод имени пользователя *@
+            <div class="input-group mb-3">
+                <span class="input-group-text"
+                      id="username-addon">
+                    <i class="bi bi-person-fill"></i>
+                </span>
+                <input type="text"
+                       class="form-control"
+                       placeholder="Имя пользователя"
+                       aria-label="Username"
+                       aria-describedby="username-addon"
+                       name="signup-username">
+            </div>
+            @* ввод почты пользователя *@
+            <div class="input-group mb-3">
+                <span class="input-group-text"
+                      id="useremail-addon">
+                    <i class="bi bi-envelope-fill"></i>
+                </span>
+                <input type="email"
+                       class="form-control"
+                       placeholder="Электронная почта"
+                       aria-label="Useremail"
+                       aria-describedby="useremail-addon"
+                       name="signup-email">
+            </div>
+            @* отправить данные *@
+            <button type="submit" class="btn btn-outline-secondary btn-size">Отправить</button>
+        </div>
+    </div>
+</form>
+
+@if (Model.UserName != null && Model.UserEmail != null)
+{
+    <p>
+        Имя: @Model.UserName
+        <br>
+        Email: @Model.UserEmail
+    </p>
+}
+
